@@ -1,30 +1,5 @@
 const Parse = {
-  /**
-   * 图片处理
-   */
-  pic: {
-    404: require('./Assets/img/404.jpg'),
-    logo: require('./Assets/img/logo.png'),
-  },
-  getPicture: (key) => {
-    return Parse.pic[key];
-  },
-  setPicture: (key, dataSource) => {
-    Parse.pic[key] = dataSource;
-  },
-  /**
-   * 图片路径自适应
-   * @param data
-   * @param def
-   * @returns {string}
-   */
-  img: (data, def) => {
-    def = def || Parse.getPicture(404);
-    if (typeof data === 'string' && data.length > 0) {
-      return data;
-    }
-    return def;
-  },
+
   /**
    * 比较两个值的大小
    * data1 > data2返回 1
@@ -84,6 +59,7 @@ const Parse = {
       return result;
     }
   },
+
   /**
    * json decode
    * @param data
@@ -100,6 +76,7 @@ const Parse = {
   jsonEncode: (json) => {
     return JSON.stringify(json);
   },
+
   /**
    * 多位数四舍五入
    * @param num
@@ -111,6 +88,7 @@ const Parse = {
     const result = Math.round(num * vv) / vv;
     return isNaN(result) ? 0 : parseFloat(result.toFixed(v));
   },
+
   /**
    * 随机整数
    * @param min

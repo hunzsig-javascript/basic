@@ -1,4 +1,4 @@
-import defaultI18n from "./i18n/lang";
+import defaultI18n from "./src/lang";
 
 const Index = {
   defaultLang: 'zh_cn',

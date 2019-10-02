@@ -1,4 +1,7 @@
-
+/**
+ * cookie
+ * @type {{set: Cookie.set, get: Cookie.get, clear: Cookie.clear}}
+ */
 const Cookie = {
   set: (name, value, expireDays) => {
     const date = new Date();

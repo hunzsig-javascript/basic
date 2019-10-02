@@ -1,3 +1,4 @@
+export {default as Anchor} from './Anchor';
 export {default as I18n} from './I18n';
 export {default as Image} from './Image/Const';
 export {default as Img} from './Image/Img';
