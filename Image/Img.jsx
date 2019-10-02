@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
-import Parse from './Parse';
+import Parse from './../Parse';
 
 class Img extends Component {
   static propTypes = {};
