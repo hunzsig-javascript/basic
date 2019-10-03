@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
-import Parse from './../Parse';
+import Image from './Const';
 
 class Img extends Component {
   static propTypes = {};
@@ -21,7 +21,7 @@ class Img extends Component {
   render() {
     return (
       <img
-        src={Parse.img(this.props.src)}
+        src={Image.adapt(this.props.src)}
         alt={this.props.alt || 'image'}
         style={this.props.style}
         onClick={this.onClick}
