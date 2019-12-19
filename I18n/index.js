@@ -1,4 +1,3 @@
-import DefaultLang from "./src/lang";
 import Cookie from '../Storage/Cookie';
 
 let tempLang = Cookie.get('i18nDefaultLang');
@@ -8,22 +7,20 @@ if (tempLang === '') {
 
 const Core = {
   default: tempLang,
-  mineLang: {},
+  langJson: {},
   setDefault: (lang) => {
     Core.default = lang;
   },
-  setMineLang: (mineLang) => {
-    Core.mineLang = mineLang;
+  setLangJson: (langJson) => {
+    Core.langJson = langJson;
   },
   tr: (trans, lang = null) => {
     if (lang === null) {
       lang = Core.default;
     }
-    let l = (Core.mineLang[lang] && Core.mineLang[lang][trans]) ? Core.mineLang[lang][trans] : null;
-    if (!l) l = (DefaultLang[lang] && DefaultLang[lang][trans]) ? DefaultLang[lang][trans] : null;
-    if (!l) l = (Core.mineLang[Core.default] && Core.mineLang[Core.default][trans]) ? Core.mineLang[Core.default][trans] : null;
-    if (!l) l = (DefaultLang[Core.default] && DefaultLang[Core.default][trans]) ? DefaultLang[Core.default][trans] : null;
-    if (!l) return trans;
+    let l = (Core.langJson[lang] && Core.langJson[lang][trans]) ? Core.langJson[lang][trans] : null;
+    if (!l) l = (Core.langJson[Core.default] && Core.langJson[Core.default][trans]) ? Core.langJson[Core.default][trans] : null;
+    if (!l) return '[I18N]' + trans;
     return l;
   },
 };

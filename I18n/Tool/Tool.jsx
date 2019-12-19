@@ -16,13 +16,8 @@ class Tool extends Component {
     this.state = {
       defaultLang: Cookie.get('i18nDefaultLang') || I18n.defaultLang,
       showTool: false,
-    }
-  };
-
-  onClick = () => {
-    if (typeof this.props.href === 'string') {
-      this.props.history.push(this.props.href);
-    }
+    };
+    this.changed = false;
   };
 
   render() {
@@ -36,13 +31,16 @@ class Tool extends Component {
           }}
         />
         <Drawer
-          title="CHOOSE LANGUAGE"
+          title="CHOICE LANGUAGE"
           placement="right"
           closable={false}
           onClose={() => {
             this.setState({
               showTool: false,
-            })
+            });
+            if (this.changed) {
+              location.reload();
+            }
           }}
           visible={this.state.showTool}
         >
@@ -50,6 +48,7 @@ class Tool extends Component {
             defaultValue={this.state.defaultLang}
             onChange={(evt) => {
               Cookie.set('i18nDefaultLang', evt.target.value, 30);
+              this.changed = true;
             }}
           >
             {
