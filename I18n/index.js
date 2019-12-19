@@ -1,15 +1,15 @@
 import Cookie from '../Storage/Cookie';
 
-let tempLang = Cookie.get('i18nDefaultLang');
-if (tempLang === '') {
-  tempLang = 'zh_cn'
-}
 
 const Core = {
-  default: tempLang,
+  default: 'zh_cn',
   langJson: {},
   setDefault: (lang) => {
-    Core.default = lang;
+    let tempLang = Cookie.get('i18nDefaultLang');
+    if (tempLang === '') {
+      tempLang = 'zh_cn'
+    }
+    Core.default = tempLang;
   },
   setLangJson: (langJson) => {
     Core.langJson = langJson;
