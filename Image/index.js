@@ -1,4 +1,4 @@
-const Const = {
+const Index = {
 
   /**
    * 图片处理
@@ -14,7 +14,7 @@ const Const = {
    * @returns {*}
    */
   get: (key) => {
-    return Const.pic[key];
+    return Index.pic[key];
   },
 
   /**
@@ -23,7 +23,7 @@ const Const = {
    * @param dataSource
    */
   set: (key, dataSource) => {
-    Const.pic[key] = dataSource;
+    Index.pic[key] = dataSource;
   },
 
   /**
@@ -33,7 +33,7 @@ const Const = {
    * @returns {string}
    */
   adapt: (data, def) => {
-    def = def || Const.get(404);
+    def = def || Index.get(404);
     if (typeof data === 'string' && data.length > 0) {
       return data;
     }
@@ -42,4 +42,4 @@ const Const = {
 
 };
 
-export default Const;
+export default Index;

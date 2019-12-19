@@ -1,25 +1,31 @@
-import defaultI18n from "./src/lang";
+import DefaultLang from "./src/lang";
+import Cookie from '../Storage/Cookie';
 
-const Index = {
-  defaultLang: 'zh_cn',
-  externalI18n: {},
-  setDefaultLang: (lang) => {
-    Index.defaultLang = lang;
+let tempLang = Cookie.get('i18nDefaultLang');
+if (tempLang === '') {
+  tempLang = 'zh_cn'
+}
+
+const Core = {
+  default: tempLang,
+  mineLang: {},
+  setDefault: (lang) => {
+    Core.default = lang;
   },
-  setExternal: (externalI18n) => {
-    Index.externalI18n = externalI18n;
+  setMineLang: (mineLang) => {
+    Core.mineLang = mineLang;
   },
   tr: (trans, lang = null) => {
     if (lang === null) {
-      lang = Index.defaultLang;
+      lang = Core.default;
     }
-    let l = (Index.externalI18n[lang] && Index.externalI18n[lang][trans]) ? Index.externalI18n[lang][trans] : null;
-    if (!l) l = (defaultI18n[lang] && defaultI18n[lang][trans]) ? defaultI18n[lang][trans] : null;
-    if (!l) l = (Index.externalI18n[Index.defaultLang] && Index.externalI18n[Index.defaultLang][trans]) ? Index.externalI18n[Index.defaultLang][trans] : null;
-    if (!l) l = (defaultI18n[Index.defaultLang] && defaultI18n[Index.defaultLang][trans]) ? defaultI18n[Index.defaultLang][trans] : null;
+    let l = (Core.mineLang[lang] && Core.mineLang[lang][trans]) ? Core.mineLang[lang][trans] : null;
+    if (!l) l = (DefaultLang[lang] && DefaultLang[lang][trans]) ? DefaultLang[lang][trans] : null;
+    if (!l) l = (Core.mineLang[Core.default] && Core.mineLang[Core.default][trans]) ? Core.mineLang[Core.default][trans] : null;
+    if (!l) l = (DefaultLang[Core.default] && DefaultLang[Core.default][trans]) ? DefaultLang[Core.default][trans] : null;
     if (!l) return trans;
     return l;
   },
 };
 
-export default Index;
+export default Core;

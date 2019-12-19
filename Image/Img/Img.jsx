@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
-import Image from './Const';
+import Image from '../index';
 
 class Img extends Component {
   static propTypes = {};

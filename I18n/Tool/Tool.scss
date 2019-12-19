@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.toolbar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+
+  .head {
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+}
+
+.radioStyle {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+}
