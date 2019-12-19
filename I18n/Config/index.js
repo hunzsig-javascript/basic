@@ -4,6 +4,7 @@ import sourceLangJson from '../LangJson';
 
 const Core = {
   default: 'zh_cn',
+  support: [],
   langJson: {},
   setDefault: (lang) => {
     let tempLang = Cookie.get('i18nDefaultLang');
@@ -11,6 +12,9 @@ const Core = {
       tempLang = 'zh_cn'
     }
     Core.default = tempLang;
+  },
+  setSupport: (support) => {
+    Core.support = support;
   },
   addLangJson: (langJson) => {
     for (let i in langJson) {

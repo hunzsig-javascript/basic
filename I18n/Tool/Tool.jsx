@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Radio, Drawer, Tooltip} from 'antd';
-import I18n from '../Config';
+import {Radio, Drawer} from 'antd';
+import I18nConfig from '../Config';
 import Cookie from '../../Storage/Cookie';
 
 import './Tool.scss';
@@ -14,7 +14,7 @@ class Tool extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      defaultLang: Cookie.get('i18nDefaultLang') || I18n.defaultLang,
+      defaultLang: Cookie.get('i18nDefaultLang') || I18nConfig.defaultLang,
       showTool: false,
       placement: props.placement,
       drawerPlacement: "right",
@@ -34,6 +34,9 @@ class Tool extends Component {
   };
 
   render() {
+    if (I18nConfig.support.length <= 0) {
+      return null;
+    }
     return (
       <div className={`toolbar ${this.state.placement}`}>
         <img
@@ -66,7 +69,9 @@ class Tool extends Component {
           >
             {
               Object.entries(langJson).map((val, key) => {
-                return <Radio className="radioStyle" key={key} value={val[0]}>{val[1]}</Radio>;
+                if (I18nConfig.support.includes(val[0])) {
+                  return <Radio className="radioStyle" key={key} value={val[0]}>{val[1]}</Radio>;
+                }
               })
             }
           </Radio.Group>
