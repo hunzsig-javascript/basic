@@ -19,6 +19,7 @@ class Tool extends Component {
       placement: props.placement,
       drawerPlacement: "right",
     };
+    this.originLang = this.state.defaultLang;
     this.changed = false;
     switch (this.state.placement) {
       case 'leftTop':
@@ -54,7 +55,7 @@ class Tool extends Component {
             this.setState({
               showTool: false,
             });
-            if (this.changed) {
+            if (this.changed && this.originLang !== Cookie.get('i18nDefaultLang')) {
               location.reload();
             }
           }}

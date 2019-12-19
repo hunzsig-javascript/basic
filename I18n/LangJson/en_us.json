@@ -1,5 +1,6 @@
 {
   "ACCESSING": "ACCESSING...",
+  "ACCOUNT": "account",
   "ADD": "add",
   "API_ERROR": "API error",
   "API_ERROR_ABORT": "Query has error",
@@ -19,6 +20,7 @@
   "CANCEL": "Cancel",
   "CHOOSE_ALL": "Choose all",
   "CHOOSE_DISPLAY_COL": "Choose Col",
+  "CONFIRM_OPERATION": "Are you sure?",
   "CONNECT_SERVER_CLOSED": "Connect closed",
   "CONNECT_SERVER_CLOSING": "Connect closing",
   "CONNECT_SERVER_COULD_NOT_ACCESS": "Access denied",
@@ -55,6 +57,7 @@
   "LOADING": "loading...",
   "LOGIN": "login",
   "LOGIN_OFFLINE": "Login has expired. Please re-login",
+  "LOGIN_PASSWORD": "login password",
   "LOGIN_TIMEOUT": "Your login has expired. Please login to an account with permission.",
   "LOGIN_TIMEOUT_OR_NOT_PERMISSION": "You do not have access rights or login has expired. Please login to the account with access rights",
   "LOGOUT_SUCCESS": "logout success",
@@ -65,6 +68,7 @@
   "MOVE_UP_SUCCESS": "move up success",
   "NO": "no",
   "NO_TIPS": "no tips",
+  "ONE_LIST": "One list",
   "OPERATION": "operations",
   "OPERATION_NOT_PERMISSION": "Some operations have no privileges and operations have been aborted",
   "PAGE_ERROR": "Page loading error.",
@@ -83,6 +87,7 @@
   "PRINT": "print",
   "PROTOCOL": "protocol",
   "RANGE": "range",
+  "REMEMBER_ME": "remember me",
   "RENDERING": "rendering...",
   "RESET": "reset",
   "RESULTS": " results",
@@ -111,10 +116,11 @@
   "UPLOAD_ONLY_ALLOW": "only support ",
   "UPLOAD_SUCCESS": "upload success",
   "URL_FORMAT": "URLFormat http(s)://xxx.xx",
-  "USER": "User",
+  "USER": "user",
+  "USER_NAME": "user name",
   "WAIT": "wait",
   "WAIT_A_MOMENT": "Wait a moment",
   "YES": "yes",
-  "confirm_Operation": "Are you sure?",
-  "one_list": "One list"
+  "YOUR_ACCOUNT": "your account",
+  "YOUR_PASSWORD": "your password"
 }
