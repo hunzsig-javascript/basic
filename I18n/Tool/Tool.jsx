@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Radio, Drawer, Tooltip} from 'antd';
-import I18n from '../index';
+import I18n from '../Config';
 import Cookie from '../../Storage/Cookie';
 
 import './Tool.scss';

@@ -1,29 +1,14 @@
-import Cookie from '../Storage/Cookie';
+import Config from './Config';
 
-
-const Core = {
-  default: 'zh_cn',
-  langJson: {},
-  setDefault: (lang) => {
-    let tempLang = Cookie.get('i18nDefaultLang');
-    if (tempLang === '') {
-      tempLang = 'zh_cn'
-    }
-    Core.default = tempLang;
-  },
-  setLangJson: (langJson) => {
-    Core.langJson = langJson;
-  },
-  tr: (trans, lang = null) => {
-    if (lang === null) {
-      lang = Core.default;
-    }
-    trans = trans.toUpperCase();
-    let l = (Core.langJson[lang] && Core.langJson[lang][trans]) ? Core.langJson[lang][trans] : null;
-    if (!l) l = (Core.langJson[Core.default] && Core.langJson[Core.default][trans]) ? Core.langJson[Core.default][trans] : null;
-    if (!l) return '[I18N]' + trans;
-    return l;
-  },
+const Index = (trans, lang = null) => {
+  if (lang === null) {
+    lang = Config.default;
+  }
+  trans = trans.toUpperCase();
+  let l = (Config.langJson[lang] && Config.langJson[lang][trans]) ? Config.langJson[lang][trans] : null;
+  if (!l) l = (Config.langJson[Config.default] && Config.langJson[Config.default][trans]) ? Config.langJson[Config.default][trans] : null;
+  if (!l) return '[I18N]' + trans;
+  return l;
 };
 
-export default Core;
+export default Index;

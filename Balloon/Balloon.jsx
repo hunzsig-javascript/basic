@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Popconfirm} from 'antd';
-import I18n from "../I18n";
+import I18n from "../I18n/Config";
 
 
 export default class Balloon extends Component {
