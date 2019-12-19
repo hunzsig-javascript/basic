@@ -16,13 +16,26 @@ class Tool extends Component {
     this.state = {
       defaultLang: Cookie.get('i18nDefaultLang') || I18n.defaultLang,
       showTool: false,
+      placement: props.placement,
+      drawerPlacement: "right",
     };
     this.changed = false;
+    switch (this.state.placement) {
+      case 'leftTop':
+      case 'leftBottom':
+        this.state.drawerPlacement = "left";
+        break;
+      case 'rightTop':
+      case 'rightBottom':
+      default:
+        this.state.drawerPlacement = "right";
+        break;
+    }
   };
 
   render() {
     return (
-      <div className="toolbar">
+      <div className={`toolbar ${this.state.placement}`}>
         <img
           className="head"
           src={require('./lang.svg').default}
@@ -32,7 +45,7 @@ class Tool extends Component {
         />
         <Drawer
           title="CHOICE LANGUAGE"
-          placement="right"
+          placement={this.state.drawerPlacement}
           closable={false}
           onClose={() => {
             this.setState({

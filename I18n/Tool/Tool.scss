@@ -2,8 +2,6 @@
 
 .toolbar {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
   z-index: 999;
 
   .head {
@@ -16,6 +14,27 @@
   }
 
 }
+
+.toolbar.leftTop {
+  top: 20px;
+  left: 20px;
+}
+
+.toolbar.leftBottom {
+  bottom: 20px;
+  left: 20px;
+}
+
+.toolbar.rightTop {
+  top: 20px;
+  right: 20px;
+}
+
+.toolbar.rightBottom {
+  bottom: 20px;
+  right: 20px;
+}
+
 
 .radioStyle {
   display: block;
