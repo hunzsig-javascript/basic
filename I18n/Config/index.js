@@ -1,6 +1,4 @@
 import Cookie from '../../Storage/Cookie';
-import sourceLangJson from '../LangJson';
-
 
 const Core = {
   default: 'zh_cn',
@@ -16,19 +14,17 @@ const Core = {
   setSupport: (support) => {
     Core.support = support;
   },
-  addLangJson: (langJson) => {
-    for (let i in langJson) {
-      if (Core.langJson[i] === undefined) {
-        Core.langJson[i] = {};
-      }
-      for (let k in langJson[i]) {
-        Core.langJson[i][k] = langJson[i][k];
-      }
-    }
+  setLangJson: (langJson) => {
+    langJson.forEach((ljv) => {
+      Core.support.forEach((sv) => {
+        if (Core.langJson[sv] === undefined) {
+          Core.langJson[sv] = {};
+        }
+        const uk = ljv.i18n_unique_key;
+        Core.langJson[sv][uk] = ljv[`i18n_${sv}`] || '';
+      });
+    });
   },
 };
-
-Core.addLangJson(sourceLangJson);
-console.log(Core.langJson);
 
 export default Core;
