@@ -20,8 +20,8 @@ const Core = {
         if (Core.langJson[sv] === undefined) {
           Core.langJson[sv] = {};
         }
-        const uk = ljv.i18n_unique_key;
-        Core.langJson[sv][uk] = ljv[`i18n_${sv}`] || '';
+        const uk = ljv.yonna_i18n_unique_key;
+        Core.langJson[sv][uk] = ljv[`yonna_i18n_${sv}`] || '';
       });
     });
   },
