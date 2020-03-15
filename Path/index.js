@@ -38,7 +38,8 @@ const Path = {
     } else {
       location += '?_t=' + (new Date()).getTime();
     }
-    window.location.href = location;
+    console.log(location);
+    //window.location.href = location;
   },
   /**
    * 重转
